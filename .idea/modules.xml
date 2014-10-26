@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" filepath="$PROJECT_DIR$/platforms/android/CordovaLib/CordovaLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platforms/android/android.iml" filepath="$PROJECT_DIR$/platforms/android/android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/com.ququplay.websocket.WebSocket/com.ququplay.websocket.WebSocket.iml" filepath="$PROJECT_DIR$/plugins/com.ququplay.websocket.WebSocket/com.ququplay.websocket.WebSocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/org.apache.cordova.startapp/src/org.apache.cordova.startapp.iml" filepath="$PROJECT_DIR$/plugins/org.apache.cordova.startapp/src/org.apache.cordova.startapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/plugins/plugins.iml" filepath="$PROJECT_DIR$/plugins/plugins.iml" />
+    </modules>
+  </component>
+</project>
+
