@@ -86,6 +86,7 @@ var app = {
                 if(result.toString().indexOf("open")>-1&&result.toString().indexOf("door")>-1){
                     window.location = "open.html";
                     $.get("http://10.21.12.51:8083/servo/100");
+                    app.onSocketAlert();
                 }else if(result.toString().indexOf("close")>-1&&result.toString().indexOf("door")>-1){
                     window.location = "close.html";
                     $.get("http://10.21.12.51:8083/servo/180");
@@ -126,12 +127,11 @@ var app = {
         app.socket.emit('start', true);
     },
     onSocketAlert:function(data){
-        app.locked = false;
-        $("#unlock").click();
-        $("#alarm").show();
-        // send alert
+        // send alertconsol
+        console.log("SOCKET ALERT");
         var dat = new Date();
-        var mes = "TEST from Aaron:My door was opened while I was out. I was not expecting anyone. Notice created at: " + dat;
+        var mes = "Door is OPEN! Close it! - at " + dat;
+
         // POST params are sent in the URL to Datadipity
         var postparams = [
             {
@@ -140,7 +140,7 @@ var app = {
             },
             {
                 name: "num",
-                value: "15039293684"
+                value: "16502857622"
             }
         ];
         app.nml.get(0, app.onAlarmTriggeredResponse, true, postparams);
