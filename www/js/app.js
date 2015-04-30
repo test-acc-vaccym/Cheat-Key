@@ -1,7 +1,12 @@
 /**
+    Cheat-Key (Oct 2014 @ AT&T Accessibility Hacakthon)
+    Developed by Yay Shin (github.com/yayshine)
+/*
+
+/**
  * This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
  *
- * This is a sample web app demonstrating how to implement a data driven application using NML.js library. This app uses Twitter Bootstrap 3, Jquery 1.10, jsviews and NMLjs. Templates are loaded from the template diretory.
+ * This app uses NML.js library, Twitter Bootstrap 3, Jquery 1.10, jsviews and NMLjs. Templates are loaded from the template diretory.
  * Copyright 2014 Clickslide Limited. All rights reserved.
  * @namespace NML.js
  */
@@ -17,14 +22,14 @@ var app = {
     lastBendValue:0,
     json: {},
     count: 0,
-    // tap1: false,
-    // pause: false,
     flag: false,
+
     // Application Constructor
     initialize: function () {
         console.log("App Init");
         app.bindEvents();
     },
+
     // Bind Event Listeners
     bindEvents: function () {
         console.log("App Bind Events");
@@ -55,9 +60,7 @@ var app = {
         app.nml.isGap = app.isGap;
         app.nml.onGetData = app.onGetData;
         app.nml.setBaseUrl(appconfig[0].url, 'https', 'datadipity.com');
-        //app.nml.loginHandler = app.onLoginOrRegister;
         app.nml.setAppConfig(appconfig);
-        //app.nml.loadDialogs(app.onAppReady, app.nml, appconfig);
         app.nml.Login("ys2657@columbia.edu", "blahblah", app.onLoginOrRegister, app.nml);
         app.onGetData();
     },
@@ -82,6 +85,7 @@ var app = {
         var maxMatches = 5;
             var promptString = "Speak now. I dare you";
             var language = "en-US";
+            // returns appropriate images according to voice commands
             window.plugins.speechrecognizer.startRecognize(function(result){
                 if(result.toString().indexOf("open")>-1&&result.toString().indexOf("door")>-1){
                     window.location = "open.html";
@@ -117,10 +121,6 @@ var app = {
     },
     onSecondBtnClicked:function(evt){
         app.enterExternalApp();
-    },
-    // TODO: create a sequence with multiple logins
-    executeLoginSequence:function(index){
-        // Loop through each URL, until all are registered and Logged in
     },
     onSocketConnect:function(){
         console.log("socket connected");
@@ -168,11 +168,8 @@ var app = {
      * This is where we will process the data
      */
     onGetData: function (nmldata) {
-        //app.json = JSON.parse(nmldata);
         console.log("onGetData");
         app.initGui();
-        //$('body').removeClass('modal-open');
-        //$('.modal-backdrop').remove();
         // setup the socket
         app.loadScript('https://cdn.socket.io/socket.io-1.1.0.js', function () {
             /* DATA SOCKET */
@@ -201,8 +198,6 @@ var app = {
             // $('#loadertext').html("Loading Tweets...");
 
             app.nml.onLogin(data);
-            //app.nml.get(app.onGetData, true);
-            //app.onGetData();
         } else {
             // add message to login modal
             app.nml.Register(
